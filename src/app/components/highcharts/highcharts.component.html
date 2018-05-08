@@ -1,0 +1,11 @@
+<div class="main-container">
+  <div class="card" style="height: 80%;display: block" [ngClass]="{'invert': isFront}">
+    <app-front-chart></app-front-chart>
+    <app-back-chart></app-back-chart>
+  </div>
+  <div class="info">
+     <button class="invert-button" (click)="invertChart()">Invert</button>
+  </div>
+
+</div>
+
