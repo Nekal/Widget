@@ -3,6 +3,7 @@ import { ChartData } from '../interfaces/chartData';
 export const getFrontChartData: ChartData[] =
   [
     {
+
       color: '#dd8bff',
       name: 'previous',
       data: [320000]

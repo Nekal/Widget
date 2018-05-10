@@ -18,7 +18,7 @@ export class BackChartComponent {
   }
 
   createChart(): Chart {
-   return new Chart({
+    return new Chart({
       chart: {
         type: 'column',
       },
@@ -28,7 +28,19 @@ export class BackChartComponent {
       credits: {
         enabled: false
       },
-      series: getBackChartData
+      series: getBackChartData,
+      xAxis: {
+        visible: false
+      },
+      yAxis: {
+        visible: false,
+        stackLabels: {
+          enabled: true,
+          style: {
+            fontWeight: 'bold',
+          }
+        }
+      }
     });
   }
 }

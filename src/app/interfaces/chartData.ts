@@ -1,5 +1,5 @@
 export class ChartData {
-  color: string;
+  color?: string;
   name: string;
   data: number[];
 }

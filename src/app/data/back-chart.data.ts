@@ -3,7 +3,7 @@ import { ChartData } from '../interfaces/chartData';
 export const getBackChartData: ChartData[] =
     [
       {
-        color: '#dd8bff',
+        color: '#9e63bc',
         name: 'Jan',
         data: [320000]
       },
@@ -24,7 +24,7 @@ export const getBackChartData: ChartData[] =
       },
       {
         color: '#9e63bc',
-        name: 'current ',
+        name: 'May ',
         data: [64123]
       },
     ]
