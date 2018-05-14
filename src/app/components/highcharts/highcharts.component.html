@@ -4,15 +4,12 @@
     <app-back-chart [chartData]="backChartData"></app-back-chart>
   </div>
 
-  <div *ngIf="isFront" class="info">
-    <span>May 17</span>
-    <button (click)="invertChart()" class='btn btn-circle'><i class="fa fa-undo "></i> Evolution Index</button>
+  <div class="info">
+    <span>{{isFront? "May 17" : "May 17, in USD"}}</span>
+    <button (click)="invertChart()" class='btn btn-circle'>
+      <i class="fa fa-undo "></i>
+      {{isFront? "Evolution Index" : "Target Attainment"}}
+    </button>
   </div>
-
-  <div *ngIf="!isFront" class="info">
-    <span>May 17, in USD</span>
-    <button (click)="invertChart()" class='btn btn-circle'><i class="fa fa-undo "></i> Target Attainment</button>
-  </div>
-
 </div>
 
