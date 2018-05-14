@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import { Chart } from 'angular-highcharts';
 
-import { getBackChartData } from '../../../data/back-chart.data'
-import {HighChartService} from '../../../services/highcharts.service';
+import AxisOptions = Highcharts.AxisOptions;
+
+import { HighChartService } from '../../../services/highcharts.service';
+import { ChartData } from '../../../interfaces/chartData';
 
 @Component({
   selector: 'app-back-chart',
@@ -10,10 +12,13 @@ import {HighChartService} from '../../../services/highcharts.service';
   styleUrls: ['./back-chart.component.css']
 })
 
-export class BackChartComponent {
+export class BackChartComponent implements OnInit {
   private chart: Chart;
+  @Input()  chartData: ChartData[];
 
-  constructor(private highChartService: HighChartService) {
+  constructor(private highChartService: HighChartService) { }
+
+  ngOnInit() {
     this.chart = this.createChart();
   }
 
@@ -23,24 +28,31 @@ export class BackChartComponent {
         type: 'column',
       },
       title: {
-        text: '' + this.highChartService.getAverageForCharts(getBackChartData)
+        text: '' + this.highChartService.getAverageForCharts(this.chartData)
       },
-      credits: {
-        enabled: false
-      },
-      series: getBackChartData,
-      xAxis: {
-        visible: false
-      },
-      yAxis: {
-        visible: false,
-        stackLabels: {
-          enabled: true,
-          style: {
-            fontWeight: 'bold',
-          }
-        }
-      }
+      credits: { enabled: false },
+      series: [{ data: this.chartData }],
+      legend: { enabled: false },
+      yAxis: this.getYAxis(),
+      xAxis: this.getXAxis()
     });
+  }
+
+  getXAxis(): AxisOptions {
+    return {
+      minorTickColor: 'white',
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      labels: {
+        format: '{value} 17',
+        step: 4
+      },
+    };
+  }
+
+  getYAxis(): AxisOptions {
+    return {
+      max: 400000,
+      min: -400000,
+    };
   }
 }

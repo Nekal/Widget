@@ -1,5 +1,7 @@
 export class ChartData {
-  color?: string;
   name: string;
-  data: number[];
+  color?: string;
+  y?: number;
+  data?: number[];
+  pointPadding?: number;
 }

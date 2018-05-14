@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { ChartData } from "../interfaces/chartData";
+import { ChartData } from '../interfaces/chartData';
+import { frontChartData } from '../data/front-chart.data';
+import { backChartData } from '../data/back-chart.data';
 
 @Injectable()
 export class HighChartService {
@@ -10,11 +12,15 @@ export class HighChartService {
   }
 
   getAverageForCharts(charts: ChartData[]): number {
-    const total: number = charts.reduce((total, chart: ChartData) => total + this.getSumChartData(chart), 0);
+    const total: number = charts.reduce((total: number, chart: ChartData): number => total + chart.y, 0);
     return total / charts.length;
   }
 
-  private getSumChartData(chart: ChartData): number {
-    return chart.data.reduce((a, b) => a + b, 0);
+  getFrontChartData(): ChartData[] {
+    return frontChartData;
+  }
+
+  getBackChartData(): ChartData[] {
+    return backChartData;
   }
 }

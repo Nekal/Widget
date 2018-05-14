@@ -1,31 +1,31 @@
 import { ChartData } from '../interfaces/chartData';
 
-export const getBackChartData: ChartData[] =
+export const backChartData: ChartData[] =
     [
       {
         color: '#9e63bc',
         name: 'Jan',
-        data: [320000]
+        y: 120000
       },
       {
         color: '#9e63bc',
         name: 'Feb ',
-        data: [470000]
+        y: 220000
       },
       {
         color: '#9e63bc',
         name: 'Mar ',
-        data: [54645]
+        y: 320000
       },
       {
         color: '#9e63bc',
         name: 'Apr ',
-        data: [123331]
+        y: 150000
       },
       {
         color: '#9e63bc',
         name: 'May ',
-        data: [64123]
+        y: 340000
       },
     ]
   ;

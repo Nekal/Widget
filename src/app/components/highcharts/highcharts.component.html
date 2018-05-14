@@ -1,14 +1,16 @@
 <div class="main-container">
-  <div class="card" style="height: 80%;display: block" [ngClass]="{'invert': isFront}">
-    <app-front-chart></app-front-chart>
-    <app-back-chart></app-back-chart>
+  <div class="card" [ngClass]="{'invert': isFront}">
+    <app-front-chart [chartData]="frontChartData"></app-front-chart>
+    <app-back-chart [chartData]="backChartData"></app-back-chart>
   </div>
+
   <div *ngIf="isFront" class="info">
-    <span>DEC 17</span>
+    <span>May 17</span>
     <button (click)="invertChart()" class='btn btn-circle'><i class="fa fa-undo "></i> Evolution Index</button>
   </div>
+
   <div *ngIf="!isFront" class="info">
-    <span>DEC 17, in USD</span>
+    <span>May 17, in USD</span>
     <button (click)="invertChart()" class='btn btn-circle'><i class="fa fa-undo "></i> Target Attainment</button>
   </div>
 
